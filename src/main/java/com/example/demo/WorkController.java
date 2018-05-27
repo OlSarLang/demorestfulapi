@@ -29,16 +29,15 @@ public class WorkController {
 
     @RequestMapping(value = "/office/{id}", method = RequestMethod.PUT)
     public @ResponseBody String updateWorker(@RequestBody Worker worker){
+        office.updateWorker(worker);
         System.out.println(worker.toString());
         return "ok";
     }
 
-    @DELETE
-    @Path("/{id}")
-    public void deleteById(@PathParam("id")int id){
-        personDao.deleteById(id);
+    @RequestMapping(value = "/office/{id}", method = RequestMethod.DELETE)
+    public void deleteWorker(@PathVariable("id") int workerId){
+        office.deleteWorker(workerId);
     }
-
 
     @RequestMapping(value = "/departments", method = RequestMethod.GET)
     public List<Department> getDepartments(@RequestParam(value = "searchstring", defaultValue = "") String searchString){
@@ -53,7 +52,15 @@ public class WorkController {
 
     @RequestMapping(value = "/departments/{id}", method = RequestMethod.PUT)
     public @ResponseBody String updateDepartment(@RequestBody Department department){
-        System.out.println(department.toString());
+        office.updateDepartment(department);
+        System.out.println();
+        return "ok";
+    }
+
+    @RequestMapping(value = "/departments/{id}", method = RequestMethod.DELETE)
+    public @ResponseBody String deleteDepartment(@PathVariable int id){
+        office.deleteDepartment(id);
+        System.out.println();
         return "ok";
     }
 

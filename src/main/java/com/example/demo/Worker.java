@@ -4,14 +4,14 @@ public class Worker {
 
     String name;
     String age;
-    String id;
+    int id;
 
     Department department;
 
     public Worker() {
     }
 
-    public Worker(String id, String name, String age, Department department) {
+    public Worker(int id, String name, String age, Department department) {
         this.name = name;
         this.age = age;
         this.id = id;
@@ -34,11 +34,11 @@ public class Worker {
         this.age = age;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
