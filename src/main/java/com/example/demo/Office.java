@@ -65,7 +65,7 @@ public class Office {
 
     public void updateDepartment(Department department){
         for (Department dep : departments){
-            if(dep.getName() == department.getName()){
+            if(dep.getId() == department.getId()){
                 int i = departments.indexOf(dep);
                 departments.set(i, department);
             }
